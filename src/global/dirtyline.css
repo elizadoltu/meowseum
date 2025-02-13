@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Dirtyline';
+    src: url('../fonts/DirtyLine/Dirtyline 36daysoftype 2022.woff2') format('woff2'),
+         url('../fonts/DirtyLine/Dirtyline 36daysoftype 2022.woff') format('woff'),
+         url('../fonts/DirtyLine/Dirtyline 36daysoftype 2022.ttf') format('truetype');
+    font-weight: 800;
+    font-display: swap;
+    font-style: italic;
+
+}

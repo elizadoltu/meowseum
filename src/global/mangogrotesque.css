@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Mango-Regular';
+    src: url('../fonts/MangoGrotesque/MangoGrotesque-Regular.woff2') format('woff2'),
+        url('../fonts/MangoGrotesque/MangoGrotesque-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mango-Italic';
+    src: url('../fonts/MangoGrotesque/MangoGrotesque-Italic.woff2') format('woff2'),
+        url('../fonts/MangoGrotesque/MangoGrotesque-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mango-Medium';
+    src: url('../fonts/MangoGrotesque/MangoGrotesque-Medium.woff2') format('woff2'),
+        url('../fonts/MangoGrotesque/MangoGrotesque-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mango-MediumItalic';
+    src: url('../fonts/MangoGrotesque/MangoGrotesque-MediumItalic.woff2') format('woff2'),
+        url('../fonts/MangoGrotesque/MangoGrotesque-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mango-Black';
+    src: url('../fonts/MangoGrotesque/MangoGrotesque-Medium.woff2') format('woff2'),
+        url('../fonts/MangoGrotesque/MangoGrotesque-Medium.otf') format('opentype');
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mango-BlackItalic';
+    src: url('../fonts/MangoGrotesque/MangoGrotesque-BlackItalic.woff2') format('woff2'),
+        url('../fonts/MangoGrotesque/MangoGrotesque-BlackItalic.otf') format('opentype');
+    font-weight: 900;
+    font-display: swap;
+    font-style: italic;
+}
+
+
+
+

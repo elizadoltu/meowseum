@@ -4,6 +4,7 @@ import Cursor from "../utils/Cursor";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import Contact from "../components/Contact";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,48 +14,46 @@ export default function About() {
   const textRef1 = useRef(null);
   const textRef2 = useRef(null);
 
-//   useEffect(() => {
-//     const container = textContainerRef.current;
-//     const p1 = textRef1.current;
-//     const p2 = textRef2.current;
-  
-//     gsap.set([p1, p2], { opacity: 0 });
-  
-//     gsap.fromTo(
-//       container,
-//       { justifyContent: "center" },
-//       {
-//         justifyContent: "space-between",
-//         duration: 1.5,
-//         ease: "power2.out",
-//         scrollTrigger: {
-//           trigger: container,
-//           start: "top 90%", 
-//           end: "top 50%",
-//           scrub: 1,
-//         },
-//       }
-//     );
-  
-//     gsap.fromTo(
-//       [p1, p2],
-//       { opacity: 0, x: 0 },
-//       {
-//         opacity: 1,
-//         x: (index) => (index === 0 ? "-50px" : "50px"),
-//         duration: 1.5,
-//         ease: "power2.out",
-//         scrollTrigger: {
-//           trigger: container,
-//           start: "top 90%",
-//           end: "top 50%",
-//           scrub: 1,
-//         },
-//       }
-//     );
-//   }, []);
-  
+  //   useEffect(() => {
+  //     const container = textContainerRef.current;
+  //     const p1 = textRef1.current;
+  //     const p2 = textRef2.current;
 
+  //     gsap.set([p1, p2], { opacity: 0 });
+
+  //     gsap.fromTo(
+  //       container,
+  //       { justifyContent: "center" },
+  //       {
+  //         justifyContent: "space-between",
+  //         duration: 1.5,
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           trigger: container,
+  //           start: "top 90%",
+  //           end: "top 50%",
+  //           scrub: 1,
+  //         },
+  //       }
+  //     );
+
+  //     gsap.fromTo(
+  //       [p1, p2],
+  //       { opacity: 0, x: 0 },
+  //       {
+  //         opacity: 1,
+  //         x: (index) => (index === 0 ? "-50px" : "50px"),
+  //         duration: 1.5,
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           trigger: container,
+  //           start: "top 90%",
+  //           end: "top 50%",
+  //           scrub: 1,
+  //         },
+  //       }
+  //     );
+  //   }, []);
 
   useEffect(() => {
     if (!textRefAbout.current) return;
@@ -105,7 +104,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="size-container-ideal">
       <Cursor />
 
       <div className="headline w-full flex justify-center items-end absolute leading-none bottom-0 left-0">
@@ -113,7 +112,7 @@ export default function About() {
           <span className="font-mango-black">about </span>meowseum
         </h1>
       </div>
-      <div className="main-content relative pt-[40vh] opacity-0">
+      <div className="size-container-ideal main-content relative pt-[40vh] opacity-0">
         <Menu />
         <div className="flex justify-center">
           <img
@@ -133,18 +132,9 @@ export default function About() {
             adorable cat photos.
           </p>
         </div>
-        {/* <div
-          ref={textContainerRef}
-          className="flex justify-center w-full px-10 mt-[40vh] text-[#dbdbdb] transition-all duration-500"
-        >
-          <p ref={textRef1} className="font-mango-regular text-4xl opacity-0">
-  This is the first paragraph. It will shift left.
-</p>
-<p ref={textRef2} className="font-mango-regular text-4xl opacity-0">
-  This is the second paragraph. It will shift right.
-</p>
-
-        </div> */}
+        <div className="main-content relative pt-[60vh] opacity-0 overflow-hidden">
+          <Contact />
+        </div>
       </div>
     </div>
   );

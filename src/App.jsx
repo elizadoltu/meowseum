@@ -7,6 +7,7 @@ import "./global/mangogrotesque.css";
 import "./global/switzer.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Cursor from "./utils/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 

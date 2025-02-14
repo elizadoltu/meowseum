@@ -31,7 +31,8 @@
   --font-switzer-bold: 'Switzer-Bold';
   --font-switzer-semibold: 'Switzer-Semibold';
   --text-10xl: 20rem;
-  --text-11xl: 19rem;
+  --text-11xl: 18.5rem;
+  --text-12xl: 14.5rem;
 }
 
 body {

@@ -7,7 +7,7 @@ const AnimatedButton = ({ text, number, href }) => {
       <span data-button-animate-chars className="menu-link-heading btn-animate-chars__text">
         {text.split("").map((char, index) => (
           <span key={index} className="btn-char" style={{ transitionDelay: `${index * 0.02}s` }}>
-            {char}
+            {char === " " ? "\u00A0" : char} 
           </span>
         ))}
       </span>

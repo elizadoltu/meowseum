@@ -87,77 +87,113 @@
 // FOR TESTING ONLY
 // BELOW IS THE VERSION WITH SOME TEST IMAGES
 import React, { useEffect, useState, useRef } from "react";
+import AnimatedButton from "../animations/StaggerAnimation";
 
 const GridGallery = () => {
-    const [imageGroups, setImageGroups] = useState([]);
-    const [page, setPage] = useState(1);
-    const [loading, setLoading] = useState(false);
-    const loaderRef = useRef(null);
-  
-    const getLocalImages = () => {
-      return Array.from({ length: 9 }, (_, index) => ({
-        id: `${page}-${index}-${Date.now()}`,
-        src: `/cat-test-1 (${index + 1}).jpg`,
-      }));
-    };
-  
-    useEffect(() => {
-      fetchImages();
-    }, [page]);
-  
-    const fetchImages = () => {
-      setLoading(true);
-      setTimeout(() => {
-        setImageGroups((prev) => [
-          ...prev,
-          { id: page, images: getLocalImages(), layout: generateRandomLayout() },
-        ]);
-        setLoading(false);
-      }, 500); 
-    };
-  
-    const generateRandomLayout = () => {
-        const layouts = [
-                  "grid-cols-3 grid-rows-3 gap-1",
-                  "grid-cols-4 grid-rows-2 gap-1",
-                  "grid-cols-2 grid-rows-4 gap-1",
-                  "grid-cols-3 grid-rows-3 gap-1",
-                  "grid-cols-3 grid-rows-2 gap-1",
-                ];
+  const [imageGroups, setImageGroups] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [layoutMode, setLayoutMode] = useState("random");
+  const loaderRef = useRef(null);
+
+  const getLocalImages = () => {
+    return Array.from({ length: 9 }, (_, index) => ({
+      id: `${page}-${index}-${Date.now()}`,
+      src: `/cat-test-1 (${index + 1}).jpg`,
+    }));
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, [page]);
+
+  const fetchImages = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setImageGroups((prev) => [
+        ...prev,
+        { id: page, images: getLocalImages(), layout: generateLayout() },
+      ]);
+      setLoading(false);
+    }, 500);
+  };
+
+  const generateLayout = () => {
+    if (layoutMode === "random") {
+      const layouts = [
+        "grid-cols-3 grid-rows-3 gap-1",
+        "grid-cols-4 grid-rows-2 gap-1",
+        "grid-cols-2 grid-rows-4 gap-1", 
+        "grid-cols-3 grid-rows-2 gap-1", 
+        "grid-cols-2 grid-rows-3 gap-1",
+      ];
       return layouts[Math.floor(Math.random() * layouts.length)];
-    };
-  
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting && !loading) {
-            setPage((prev) => prev + 1);
-          }
-        },
-        { threshold: 1.0 }
-      );
-      if (loaderRef.current) observer.observe(loaderRef.current);
-      return () => observer.disconnect();
-    }, [loading]);
-  
-    return (
+    }
+    return "grid-cols-3 grid-rows-3 gap-1"; 
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loading) {
+          setPage((prev) => prev + 1);
+        }
+      },
+      { threshold: 1.0 }
+    );
+    if (loaderRef.current) observer.observe(loaderRef.current);
+    return () => observer.disconnect();
+  }, [loading]);
+
+  const toggleLayout = (mode) => {
+    setLayoutMode(mode);
+    setImageGroups([]);
+    fetchImages(); 
+  };
+
+  const getItemClass = () => {
+    if (layoutMode === "random") {
+      const colSpan = Math.random() < 0.5 ? "col-span-1" : "col-span-2";
+      const rowSpan = Math.random() < 0.5 ? "row-span-1" : "row-span-2";
+      return `${colSpan} ${rowSpan}`;
+    }
+    return "col-span-1 row-span-1"; 
+  };
+
+  return (
+    <div>
+      <div className="mb-4 z-50 flex justify-end right-0 font-switzer-semibold uppercase">
+        <button
+          onClick={() => toggleLayout("random")}
+          className="mr-4 px-4 py-2 uppercase"
+        >
+          <AnimatedButton text={"random"}/>
+        </button>
+        <button
+          onClick={() => toggleLayout("grid")}
+          className="px-4 py-2 uppercase"
+        >
+          <AnimatedButton text={"grid"}/>
+        </button>
+      </div>
       <div className="size-container-ideal flex flex-col items-center">
-        {imageGroups.map((group) => (
-          <div key={group.id} className={`grid ${group.layout} w-full mt-10`}>
+        {imageGroups.length > 0 && imageGroups.map((group) => (
+          <div key={group.id} className={`grid ${group.layout} mt-10`}>
             {group.images.length > 0 ? (
-              group.images.map((img, index) => (
-                <div
-                  key={img.id}
-                  className={`p-1 ${
-                  img.id.includes("0") ? "col-span-2 row-span-2" : "col-span-1 row-span-1"
-                  }`}
-                >
+              group.images.map((img) => (
+                <div key={img.id} className={`p-1 ${getItemClass()}`}>
                   <img
                     src={img.src}
                     alt="Cat Trail"
-                    className="w-3xl h-3xl object-cover"
+                    className="w-3xl h-2xl object-cover"
                   />
-                  <a href="http://google.com" target="_blank" className="font-switzer-semibold uppercase text-sm">@elizadoltuofficial</a>
+                  <a
+                    href="http://google.com"
+                    target="_blank"
+                    className="font-switzer-semibold uppercase text-sm"
+                  >
+                    @elizadoltuofficial
+                  </a>
                 </div>
               ))
             ) : (
@@ -169,10 +205,10 @@ const GridGallery = () => {
         ))}
         <div ref={loaderRef} className="h-2"></div>
       </div>
-    );
-  };
-  
-  
+    </div>
+  );
+};
 
 export default GridGallery;
+
 

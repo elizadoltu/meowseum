@@ -117,11 +117,13 @@ const GridGallery = () => {
     };
   
     const generateRandomLayout = () => {
-      const layouts = [
-        "grid-cols-3 gap-1", 
-        "grid-cols-4 gap-1",
-        "grid-cols-2 gap-2",
-      ];
+        const layouts = [
+                  "grid-cols-3 grid-rows-3 gap-1",
+                  "grid-cols-4 grid-rows-2 gap-1",
+                  "grid-cols-2 grid-rows-4 gap-1",
+                  "grid-cols-3 grid-rows-3 gap-1",
+                  "grid-cols-3 grid-rows-2 gap-1",
+                ];
       return layouts[Math.floor(Math.random() * layouts.length)];
     };
   

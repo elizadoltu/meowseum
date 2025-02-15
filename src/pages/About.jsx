@@ -104,7 +104,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="size-container-ideal">
+    <div className="size-container-ideal about">
       <Cursor />
 
       <div className="headline w-full flex justify-center items-end absolute leading-none bottom-0 left-0">

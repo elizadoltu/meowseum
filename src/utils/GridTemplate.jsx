@@ -96,7 +96,7 @@ const GridGallery = () => {
   
     const getLocalImages = () => {
       return Array.from({ length: 9 }, (_, index) => ({
-        id: `${page}-${index}`,
+        id: `${page}-${index}-${Date.now()}`,
         src: `/cat-test-1 (${index + 1}).jpg`,
       }));
     };
@@ -149,7 +149,7 @@ const GridGallery = () => {
                 <div
                   key={img.id}
                   className={`p-1 ${
-                    index % 5 === 0 ? "col-span-2 row-span-2" : "col-span-1 row-span-1"
+                  img.id.includes("0") ? "col-span-2 row-span-2" : "col-span-1 row-span-1"
                   }`}
                 >
                   <img

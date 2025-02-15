@@ -31,14 +31,14 @@ export default function Main() {
     }, []);
 
     return (
-      <div className="size-container-ideal overflow-hidden">
+      <div className="size-container-ideal main overflow-hidden">
         <Cursor />
         <div className="headline w-full flex justify-center items-end absolute leading-none bottom-0 left-0">
           <h1 className="font-dirtyline text-11xl headline-text uppercase">
             meowseum
           </h1>
         </div>
-        <div className="main-content relative pt-[40vh] opacity-0">
+        <div className="main-content main relative pt-[40vh] opacity-0">
           <img
             src="/sticker-cat.png"
             alt="a sticker with a cute cat"

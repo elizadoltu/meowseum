@@ -15,7 +15,7 @@
   --background-color: #050505;
   --font-color: #dbdbdb;
   --size-unit: 16;
-  --size-container-ideal: 1440px;
+  --size-container-ideal: 1440;
   --size-container-min: 992px;
   --size-container-max: 1920px;
   --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
@@ -43,6 +43,22 @@ body {
   height: 100%;
   overflow-x: hidden;
   padding: 15px;
+}
+
+.menu {
+  font-size: var(--size-font);
+}
+
+.main {
+  font-size: var(--size-font);
+}
+
+.about {
+  font-size: var(--size-font);
+}
+
+.contact {
+  font-size: var(--size-font);
 }
 
 @media screen and (max-width: 991px) {

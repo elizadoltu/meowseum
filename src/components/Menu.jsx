@@ -6,7 +6,7 @@ export default function Menu() {
   const { changeTheme } = useContext(ThemeContext);
 
   return (
-    <div className="uppercase font-switzer-semibold text-lg fixed flex justify-between top-0 left-0 w-full z-50 mix-blend-difference">
+    <div className="menu uppercase font-switzer-semibold text-lg fixed flex justify-between top-0 left-0 w-full z-50 mix-blend-difference">
       <div className="flex">
         <p>
           {" "}

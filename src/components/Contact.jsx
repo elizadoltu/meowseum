@@ -60,7 +60,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="uppercase leading-64">
+    <div className="uppercase leading-64 contact">
       {showCursor && <CursorContact />}
       <div className="flex">
         <h1 className="font-mango-black text-10xl mt-28" ref={addToRefs}>

@@ -5,24 +5,28 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const backgroundColors = [
+    "#050505",
     "#1d1616",
     "#006a67",
     "#fffaec",
     "#4b5945",
     "#16423c",
-    "#dbdbdb",
     "#0E2431",
-    "#114232"
+    "#114232",
+    "#016A70",
+    "#50CB93"
   ];
   const fontColors = [
+    "#dbdbdb",
     "#8e1616",
     "#16c47f",
     "#578e7e",
     "#b2c9ad",
     "#ff6500",
-    "#050505",
     "#FC3A52",
-    "#FCDC2A"
+    "#FCDC2A",
+    "#B5C99A",
+    "#552E5A"
   ];
 
   const [themeIndex, setThemeIndex] = useState(() => {

@@ -28,7 +28,7 @@ export default function Contact() {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: textRefs.current[0], 
-        start: "top 80%",
+        start: "top 60%",
         toggleActions: "play none none none",
       },
     });

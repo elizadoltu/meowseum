@@ -36,6 +36,7 @@ export default function App() {
 
   return (
     <>
+    <Cursor />
       <Router>
         <Routes>
           <Route 

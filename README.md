@@ -41,7 +41,7 @@ To run **Meowseum** locally on your machine, follow these steps:
    git clone https://github.com/your-username/meowseum.git
 2. Navigate to the project directory:
    ```bash
-    cd catgallery
+    cd meowseum
 3. Install the dependencies:
    ```bash
     npm install

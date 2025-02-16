@@ -7,6 +7,8 @@
   --size-container-ideal: 1440;
   --size-container-min: 992px;
   --size-container-max: 1920px;
+  --font-switzer-regular: 'Switzer-Regular';
+  --font-switzer-bold: 'Switzer-Bold';
   --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
   --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
 }

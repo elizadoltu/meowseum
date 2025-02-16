@@ -1,0 +1,30 @@
+.cursor {
+  z-index: 1000;
+  pointer-events: none;
+  color: #050505;
+  background-color: #dbdbdb;
+  border-radius: 0.25em;
+  padding: 0.3em 0.75em 0.4em;
+  font-size: 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+.cursor-paragraph {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-family: var(--font-switzer-bold);
+  text-transform: uppercase;
+  opacity: 1;
+  font-weight: bold;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+

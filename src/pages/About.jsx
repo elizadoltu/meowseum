@@ -5,55 +5,19 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import Contact from "../components/Contact";
+import DynamicCursor from "../utils/DynamicCursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const textRefAbout = useRef(null);
-  const textContainerRef = useRef(null);
-  const textRef1 = useRef(null);
-  const textRef2 = useRef(null);
-
-  //   useEffect(() => {
-  //     const container = textContainerRef.current;
-  //     const p1 = textRef1.current;
-  //     const p2 = textRef2.current;
-
-  //     gsap.set([p1, p2], { opacity: 0 });
-
-  //     gsap.fromTo(
-  //       container,
-  //       { justifyContent: "center" },
-  //       {
-  //         justifyContent: "space-between",
-  //         duration: 1.5,
-  //         ease: "power2.out",
-  //         scrollTrigger: {
-  //           trigger: container,
-  //           start: "top 90%",
-  //           end: "top 50%",
-  //           scrub: 1,
-  //         },
-  //       }
-  //     );
-
-  //     gsap.fromTo(
-  //       [p1, p2],
-  //       { opacity: 0, x: 0 },
-  //       {
-  //         opacity: 1,
-  //         x: (index) => (index === 0 ? "-50px" : "50px"),
-  //         duration: 1.5,
-  //         ease: "power2.out",
-  //         scrollTrigger: {
-  //           trigger: container,
-  //           start: "top 90%",
-  //           end: "top 50%",
-  //           scrub: 1,
-  //         },
-  //       }
-  //     );
-  //   }, []);
+  const leftTextRefs = useRef([]);
+  const rightTextRefs = useRef([]);
+  const elementsRef = useRef([]);
+  const textRefCreator = useRef(null);
+  const refParagraphTarget = useRef(null);
+  const refTriggerElement = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     if (!textRefAbout.current) return;
@@ -103,10 +67,141 @@ export default function About() {
       });
   }, []);
 
+  useEffect(() => {
+    leftTextRefs.current.forEach((el) => {
+      gsap.fromTo(
+        el,
+        { x: 0, opacity: 0 },
+        {
+          x: -260,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
+    });
+
+    rightTextRefs.current.forEach((el) => {
+      gsap.fromTo(
+        el,
+        { x: 0, opacity: 0 },
+        {
+          x: 240,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
+    });
+  }, []);
+
+  const handleMouseEnter = () => {
+    gsap.to(refParagraphTarget.current, {
+      opacity: 1,
+      duration: 0.5,
+      y: 0,
+      ease: "power2.out",
+    });
+
+    gsap.to(refTriggerElement.current, {
+      y: 0,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseLeave = () => {
+    gsap.to(refParagraphTarget.current, {
+      opacity: 0,
+      duration: 0.5,
+      y: 20,
+      ease: "power2.out",
+    });
+
+    gsap.to(refTriggerElement.current, {
+      y: 150,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  };
+
+  useEffect(() => {
+    elementsRef.current.forEach((el) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 100%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
+  }, []);
+
+  useEffect(() => {
+    gsap.fromTo(
+      textRefCreator.current,
+      {
+        x: -500,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: textRefCreator.current,
+          start: "top 100%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+      }
+    );
+  }, []);
+
+  useEffect(() => {
+    gsap.fromTo(
+      imageRef.current,
+      {
+        clipPath: "inset(0 100% 0 0)",
+      },
+      {
+        clipPath: "inset(0 0 0 0)",
+        duration: 0.3,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top 100%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+      }
+    );
+  }, []);
+
   return (
     <div className="size-container-ideal about">
       <Cursor />
-
       <div className="headline w-full flex justify-center items-end absolute leading-none bottom-0 left-0">
         <h1 className="font-dirtyline text-12xl headline-text uppercase">
           <span className="font-mango-black">about </span>meowseum
@@ -131,6 +226,124 @@ export default function About() {
             where everyone can share their love for felines and enjoy endless
             adorable cat photos.
           </p>
+        </div>
+        <div className="mt-[40vh]">
+          <div className="uppercase font-mango-black flex justify-center text-11xl">
+            <h1 ref={(el) => el && leftTextRefs.current.push(el)}>how</h1>
+            <h1 ref={(el) => el && rightTextRefs.current.push(el)}>
+              does it <span className="font-mango-italic">work</span>
+            </h1>
+          </div>
+          <div className="grid grid-cols-2 font-switzer-regular">
+            <h1
+              className="uppercase font-switzer-bold"
+              ref={(el) => el && elementsRef.current.push(el)}
+            >
+              share your cat's moment
+            </h1>
+            <p
+              ref={(el) => el && elementsRef.current.push(el)}
+              className="w-3xl"
+            >
+              Upload your cat's photo by filling out a simple form. You’ll need:
+              Your email address A photo of your cat Your Instagram/Twitter
+              account or just your name (so we can give you credit!) (Optional)
+              A short message for us
+            </p>
+
+            <h1
+              className="uppercase font-switzer-bold mt-20"
+              ref={(el) => el && elementsRef.current.push(el)}
+            >
+              Photo Review for Safety
+            </h1>
+            <p
+              ref={(el) => el && elementsRef.current.push(el)}
+              className="w-3xl mt-20"
+            >
+              Once submitted, we personally review each photo to ensure the
+              gallery stays a safe and positive space.
+            </p>
+
+            <h1
+              className="uppercase font-switzer-bold mt-20"
+              ref={(el) => el && elementsRef.current.push(el)}
+            >
+              Approval & Feature
+            </h1>
+            <p
+              ref={(el) => el && elementsRef.current.push(el)}
+              className="w-3xl mt-20"
+            >
+              After approval, your cat’s photo will appear on the main page,
+              along with your Instagram handle!
+            </p>
+          </div>
+        </div>
+        <div className="flex justify-end uppercase text-10xl font-mango-black mt-[20vh] px-5">
+          <h1 ref={textRefCreator}>
+            the <span className="font-mango-italic">creators</span>
+          </h1>
+        </div>
+        <div className="flex items-end leading-none">
+          <DynamicCursor />
+          <a
+            href="https://www.linkedin.com/in/eliza-teodora-doltu-56336b24a/"
+            target="_blank"
+            className="w-full"
+          >
+            <img
+              src="/eliza.png"
+              alt="one of the creators with a cat, eliza teodora doltu"
+              data-cursor="To my LinkedIn profile"
+              ref={imageRef}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                objectFit: "cover",
+                clipPath: "inset(0 100% 0 0)",
+                transition: "clip-path 0.3s ease-out",
+              }}
+            ></img>
+          </a>
+
+          <div
+            className="font-switzer-regular ml-5"
+            data-cursor="To my linkedin profile"
+          >
+            <h1
+              className="uppercase font-mango-black text-12xl translate-y-36 transition-all duration-500 ease-out"
+              ref={refTriggerElement}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              data-cursor="To my LinkedIn profile"
+            >
+              <a
+                href="https://www.linkedin.com/in/eliza-teodora-doltu-56336b24a/"
+                target="_blank"
+                className="w-full"
+              >
+                {" "}
+                eliza{" "}
+              </a>
+            </h1>
+            <div
+              className="opacity-0 grid grid-cols-2 gap-4 translate-y-5 transition-all duration-500 ease-out"
+              ref={refParagraphTarget}
+            >
+              <p>
+                Hello, my name is Eliza-Teodora Doltu, and I am one of the
+                creators of MEOWSEUM. Ever since I can remember, I’ve wanted to
+                express my creativity and bring something beautiful to life.
+              </p>
+              <p>
+                Just like websites tell a story through images, colors, and
+                fonts, MEOWSEUM tells a story through cats—their personalities,
+                their charm, and the joy they bring to us.
+              </p>
+            </div>
+          </div>
         </div>
         <div className="main-content relative pt-[60vh] opacity-0 overflow-hidden">
           <Contact />

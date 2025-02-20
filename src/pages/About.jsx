@@ -234,16 +234,16 @@ export default function About() {
               does it <span className="font-mango-italic">work</span>
             </h1>
           </div>
-          <div className="grid grid-cols-2 font-switzer-regular">
+          <div className="grid grid-cols-2 font-general-regular">
             <h1
-              className="uppercase font-switzer-bold"
+              className="uppercase font-general-semibold"
               ref={(el) => el && elementsRef.current.push(el)}
             >
               share your cat's moment
             </h1>
             <p
               ref={(el) => el && elementsRef.current.push(el)}
-              className="w-3xl"
+              className="w-3xl text-lg"
             >
               Upload your cat's photo by filling out a simple form. You’ll need:
               Your email address A photo of your cat Your Instagram/Twitter
@@ -252,28 +252,28 @@ export default function About() {
             </p>
 
             <h1
-              className="uppercase font-switzer-bold mt-20"
+              className="uppercase font-general-semibold mt-20"
               ref={(el) => el && elementsRef.current.push(el)}
             >
               Photo Review for Safety
             </h1>
             <p
               ref={(el) => el && elementsRef.current.push(el)}
-              className="w-3xl mt-20"
+              className="w-3xl text-lg mt-20"
             >
               Once submitted, we personally review each photo to ensure the
               gallery stays a safe and positive space.
             </p>
 
             <h1
-              className="uppercase font-switzer-bold mt-20"
+              className="uppercase font-general-semibold mt-20"
               ref={(el) => el && elementsRef.current.push(el)}
             >
               Approval & Feature
             </h1>
             <p
               ref={(el) => el && elementsRef.current.push(el)}
-              className="w-3xl mt-20"
+              className="w-3xl mt-20 text-lg"
             >
               After approval, your cat’s photo will appear on the main page,
               along with your Instagram handle!
@@ -309,11 +309,11 @@ export default function About() {
           </a>
 
           <div
-            className="font-switzer-regular ml-5"
+            className="font-general-regular ml-5"
             data-cursor="To my linkedin profile"
           >
             <h1
-              className="uppercase font-mango-black text-12xl translate-y-36 transition-all duration-500 ease-out"
+              className="uppercase font-mango-black text-12xl translate-y-36 transition-all duration-200 ease-out"
               ref={refTriggerElement}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -329,7 +329,7 @@ export default function About() {
               </a>
             </h1>
             <div
-              className="opacity-0 grid grid-cols-2 gap-4 translate-y-5 transition-all duration-500 ease-out"
+              className="opacity-0 grid grid-cols-2 gap-4 translate-y-5 transition-all duration-200 ease-out leading-6.5"
               ref={refParagraphTarget}
             >
               <p>

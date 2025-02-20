@@ -14,7 +14,7 @@ export default function Page404() {
                 <img src="/sticker-cat.png" alt="a sticker with a cute cat" className="w-2xl -mt-24"/>
                 <h1>4</h1>
             </div>
-            <p className="font-switzer-regular uppercase leading-none -mt-[15vh]">Oops! Looks like you got lost in the catnip!</p>
+            <p className="font-general-regular uppercase leading-none -mt-[15vh]">Oops! Looks like you got lost in the catnip!</p>
         </div>
     );
 }

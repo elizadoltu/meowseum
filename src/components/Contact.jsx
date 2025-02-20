@@ -4,12 +4,30 @@ import CursorContact from "../utils/CursorContact";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import { useParallax } from "react-scroll-parallax";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const [showCursor, setShowCursor] = useState(false);
   const textRefs = useRef([]);
+  const parallaxConfig = {
+    title: {
+      translateY: [70, -85], speed: 10, easing: "easeInOutQuad"
+    }
+  };
+
+  const { ref: title } = useParallax(parallaxConfig.title); 
+
+  const mergeRefs = (...refs) => (el) => {
+    refs.forEach((ref) => {
+      if (typeof ref === "function") {
+        ref(el);
+      } else if (ref && typeof ref === "object") {
+        ref.current = el;
+      }
+    });
+  };
 
   const addToRefs = (el) => {
     if (el && !textRefs.current.includes(el)) {
@@ -85,7 +103,7 @@ export default function Contact() {
           <h1 className="font-mango-black" ref={addToRefs}>
             <span className="font-mango-iblack mr-20">cat </span>lovers
           </h1>
-          <div className="flex justify-between font-switzer-semibold text-lg -mt-12 z-50 relative">
+          <div className="flex justify-between font-general-semibold text-lg -mt-12 z-50 relative">
             <p>
               <AnimatedButton text={"submit photo"} />
             </p>
@@ -100,9 +118,9 @@ export default function Contact() {
           className="absolute left-3/7 -mt-28 ml-10"
         />
       </div>
-      <div className="leading-none">
+      <div className="leading-none" ref={title}>
         <div className="mt-96 flex flex-col justify-center">
-          <h1 className="font-dirtyline text-11xl" ref={addToRefs}>
+          <h1 className="font-dirtyline text-11xl" ref={mergeRefs(addToRefs)}>
             meowseum
           </h1>
           <img
@@ -111,7 +129,7 @@ export default function Contact() {
             className="w-3xl flex left-1/2 translate-x-2/3"
           />
         </div>
-        <div className="flex text-sm justify-between font-switzer-semibold">
+        <div className="flex text-sm justify-between font-general-semibold">
           <p>©ALL RIGHTS RESERVED</p>
           <p>BY RAUL & ELIZA. 2025</p>
         </div>

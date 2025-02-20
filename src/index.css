@@ -7,8 +7,6 @@
   --size-container-ideal: 1440;
   --size-container-min: 992px;
   --size-container-max: 1920px;
-  --font-switzer-regular: 'Switzer-Regular';
-  --font-switzer-bold: 'Switzer-Bold';
   --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
   --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
 }
@@ -29,9 +27,8 @@
   --font-mango-imedium: 'Mango-MediumItalic';
   --font-mango-black: 'Mango-Black';
   --font-mango-iblack: 'Mango-BlackItalic';
-  --font-switzer-regular: 'Switzer-Regular';
-  --font-switzer-bold: 'Switzer-Bold';
-  --font-switzer-semibold: 'Switzer-Semibold';
+  --font-general-regular: 'GeneralSans-Regular';
+  --font-general-semibold: 'GeneralSans-Semibold';
   --text-10xl: 20rem;
   --text-11xl: 18.5rem;
   --text-12xl: 14.5rem;

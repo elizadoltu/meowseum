@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import AnimatedButton from "../animations/StaggerAnimation";
-import ThemeContext from "../utils/ThemeContext";
+import ThemeContext from "../context/ThemeContext";
 
 export default function Menu() {
   const { changeTheme } = useContext(ThemeContext);
 
   return (
-    <div className="menu uppercase font-switzer-semibold text-lg fixed flex justify-between top-0 left-0 w-full z-50 mix-blend-difference">
+    <div className="menu uppercase font-general-semibold text-lg fixed flex justify-between top-0 left-0 w-full z-50 mix-blend-difference">
       <div className="flex">
         <p>
           {" "}
@@ -27,7 +27,7 @@ export default function Menu() {
         </p>
         <p className="mr-10">
        
-            <AnimatedButton text={"about"} href={"/about"} />
+        <AnimatedButton text={"about"} href={"/about"} />
         
         </p>
         <p>

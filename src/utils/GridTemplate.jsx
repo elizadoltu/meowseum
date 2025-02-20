@@ -160,7 +160,7 @@ const GridGallery = () => {
 
   return (
     <div>
-      <div className="mb-4 z-50 flex justify-end right-0 font-switzer-semibold uppercase">
+      <div className="mb-4 z-50 flex justify-end right-0 font-general-semibold uppercase">
         <button onClick={() => toggleLayout("random")} className="mr-4 px-4 py-2 uppercase">
           <AnimatedButton text={"random"} />
         </button>
@@ -179,7 +179,7 @@ const GridGallery = () => {
                     <a
                       href="http://google.com"
                       target="_blank"
-                      className="font-switzer-semibold uppercase text-sm"
+                      className="font-general-semibold uppercase text-sm"
                     >
                       @elizadoltuofficial
                     </a>

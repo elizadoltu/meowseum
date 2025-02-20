@@ -4,10 +4,11 @@ import Lenis from "lenis";
 import "./index.css";
 import "./global/dirtyline.css";
 import "./global/mangogrotesque.css";
-import "./global/switzer.css";
+import "./global/general-sans.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Cursor from "./utils/Cursor";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,11 +36,11 @@ export default function App() {
   }, []);
 
   return (
-    <>
-    <Cursor />
+    <ParallaxProvider>
+      <Cursor />
       <Router>
         <Routes>
-          <Route 
+          <Route
             path="/"
             element={
               <Suspense fallback={<div>Loading...</div>}>
@@ -47,7 +48,7 @@ export default function App() {
               </Suspense>
             }
           />
-          <Route 
+          <Route
             path="/about"
             element={
               <Suspense fallback={<div>Loading...</div>}>
@@ -55,7 +56,7 @@ export default function App() {
               </Suspense>
             }
           />
-          <Route 
+          <Route
             path="*"
             element={
               <Suspense fallback={<div>Loading...</div>}>
@@ -65,6 +66,6 @@ export default function App() {
           />
         </Routes>
       </Router>
-    </>
-  )
+    </ParallaxProvider>
+  );
 }

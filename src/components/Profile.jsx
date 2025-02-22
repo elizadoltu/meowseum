@@ -62,7 +62,7 @@ const Profile = ({ name, firstParagraph, secondParagraph, image, linkedinLink })
         ease: "power4.out",
         scrollTrigger: {
           trigger: el,
-          start: "top 100%",
+          start: "top 110%",
           toggleActions: "play none none none",
           once: true,
         },

@@ -2,15 +2,19 @@
     cursor: pointer;
     border-radius: .25em;
     flex-grow: 1;
-    justify-content: center;
-    align-items: center;
     max-width: 22em;
     padding: 1em;
     line-height: 1;
-    font-size: 1.1rem;
     text-decoration: none;
     display: flex;
     position: relative;
+    font-size: 1.1rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    .btn-animate-chars {
+      font-size: 0.85rem;
+    }
   }
   
   .btn-animate-chars__text {

@@ -12,12 +12,15 @@ export default function PrivacyPolicy() {
   const rightTextRefs = useRef([]);
 
   useEffect(() => {
+
+    const isMobile = window.innerWidth <= 768; 
+    
     leftTextRefs.current.forEach((el) => {
       gsap.fromTo(
         el,
-        { x: 0, opacity: 0 },
+        { x: 0, opacity: 0 }, 
         {
-          x: "-65%",
+          x: isMobile ? 0 : "-65%", 
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -30,13 +33,13 @@ export default function PrivacyPolicy() {
         }
       );
     });
-
+  
     rightTextRefs.current.forEach((el) => {
       gsap.fromTo(
         el,
-        { x: 0, opacity: 0 },
+        { x: 0, opacity: 0 }, 
         {
-          x: "85%",
+          x: isMobile ? 0 : "85%", 
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -54,7 +57,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="size-container-ideal">
       <Cursor />
-      <div className="uppercase font-mango-black flex justify-center text-11xl">
+      <div className="uppercase font-mango-black flex justify-center desktop:text-11xl tablet:text-11xl mobile:text-8xl mobile:mt-10">
         <h1 ref={(el) => el && leftTextRefs.current.push(el)}>privacy</h1>
         <h1
           ref={(el) => el && rightTextRefs.current.push(el)}
@@ -63,7 +66,7 @@ export default function PrivacyPolicy() {
           policy
         </h1>
       </div>
-      <div className="w-3xl font-general-regular">
+      <div className="desktop:w-3xl tablet:w-3xl mobile:w-1xl font-general-regular">
         <p>
           This <span className="font-bold underline">Privacy Policy</span>{" "}
           explains how Meowseum &#40;"we," "us," or "our"&#41; collects, uses,

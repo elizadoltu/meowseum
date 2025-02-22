@@ -93,9 +93,18 @@ const GridGallery = () => {
   const [imageGroups, setImageGroups] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [layoutMode, setLayoutMode] = useState("random");
+  const [layoutMode, setLayoutMode] = useState("grid");
   const [layout, setLayout] = useState("grid-cols-3 grid-rows-3 gap-1");
   const loaderRef = useRef(null);
+
+
+  useEffect(() => {
+    if (window.innerWidth < 640) {
+      setLayoutMode("grid"); 
+    }
+  }, []);
+  
+
 
   const getLocalImages = () => {
     return Array.from({ length: 9 }, (_, index) => ({
@@ -145,7 +154,7 @@ const GridGallery = () => {
 
   const toggleLayout = (mode) => {
     setLayoutMode(mode);
-    setLayout(mode === "random" ? generateLayout() : "grid-cols-3 grid-rows-3 gap-1");
+    setLayout(mode === "random" ? generateLayout() : "tablet:grid-cols-3 grid-rows-3 gap-1 mobile:grid-cols-1 gap-1");
     setImageGroups([]);
     setPage(1);
   };
@@ -160,7 +169,7 @@ const GridGallery = () => {
 
   return (
     <div>
-      <div className="mb-4 z-50 flex justify-end right-0 font-general-semibold uppercase">
+      <div className="mb-4 z-50 flex justify-end right-0 font-general-semibold uppercase ">
         <button onClick={() => toggleLayout("random")} className="mr-4 px-4 py-2 uppercase">
           <AnimatedButton text={"random"} />
         </button>

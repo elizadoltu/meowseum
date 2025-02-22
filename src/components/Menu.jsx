@@ -17,9 +17,27 @@ export default function Menu() {
             />
       
         </p>
-        <button onClick={changeTheme} className="ml-10 uppercase">
+        <button onClick={changeTheme} className="uppercase ml-10">
           <AnimatedButton text={"change colors"} />
         </button>
+        <p className="ml-10">
+          {" "}
+      
+            <AnimatedButton
+              text={"privacy"}
+              href="/privacy-policy"
+            />
+      
+        </p>
+        <p className="ml-10">
+          {" "}
+      
+            <AnimatedButton
+              text={"cookie"}
+              href="/cookie-policy"
+            />
+      
+        </p>
       </div>
       <div className="flex">
         <p className="mr-10">

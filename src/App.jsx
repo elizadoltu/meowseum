@@ -15,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Main = lazy(() => import("./pages/Main"));
 const About = lazy(() => import("./pages/About"));
 const Page404 = lazy(() => import("./pages/404"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
 
 export default function App() {
   useEffect(() => {
@@ -53,6 +55,23 @@ export default function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <About />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/privacy-policy"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <PrivacyPolicy />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/cookie-policy"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <CookiePolicy />
               </Suspense>
             }
           />

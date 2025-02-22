@@ -104,8 +104,6 @@ export default function About() {
     });
   }, []);
 
-  
-
   useEffect(() => {
     elementsRef.current.forEach((el) => {
       gsap.fromTo(

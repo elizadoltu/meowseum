@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import Menu from "../components/Menu";
 import Contact from "../components/Contact";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Cursor from "../utils/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,6 +53,7 @@ export default function CookiePolicy() {
 
   return (
     <div className="size-container-ideal">
+      <Cursor />
       <div className="uppercase font-mango-black flex justify-center text-11xl">
         <h1 ref={(el) => el && leftTextRefs.current.push(el)}>cookie</h1>
         <h1

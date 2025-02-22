@@ -45,6 +45,11 @@ body {
   padding: 15px;
 }
 
+::selection {
+  background-color: var(--font-color);
+  color: var(--background-color);
+}
+
 .menu {
   font-size: var(--size-font);
 }

@@ -3,6 +3,7 @@ import Menu from "../components/Menu";
 import Contact from "../components/Contact";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Cursor from "../utils/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,6 +53,7 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="size-container-ideal">
+      <Cursor />
       <div className="uppercase font-mango-black flex justify-center text-11xl">
         <h1 ref={(el) => el && leftTextRefs.current.push(el)}>privacy</h1>
         <h1
@@ -141,7 +143,7 @@ export default function PrivacyPolicy() {
         <p className="mt-2"><span className="font-bold underline">Meowseum</span> shares potentially personally identifiable information only with employees and contractors who:</p>
         <p className="ml-5">Have signed confidentiality agreements.</p>
         <p className="ml-5">Need the data to review, approve, or manage submissions.</p>
-        <p className="mt-5">Some of these team members may be located outside your country. By using Meowseum<span className="font-bold">you consent to the transfer of your information where necessary.</span>, </p>
+        <p className="mt-5">Some of these team members may be located outside your country. By using Meowseum<span className="font-bold"> you consent to the transfer of your information where necessary.</span></p>
         <p className="mt-5">Outside of these cases, we disclose personal data only when:</p>
         <p className="ml-5">Legally required &#40;e.g., law enforcement requests&#41;.</p>
         <p className="ml-5">Necessary to protect Meowseum, its users, or the public.</p>

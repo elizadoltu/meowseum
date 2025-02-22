@@ -12,12 +12,15 @@ export default function CookiePolicy() {
   const rightTextRefs = useRef([]);
 
   useEffect(() => {
+    // Function to get the current device width
+    const isMobile = window.innerWidth <= 768; // Adjust the width as needed
+    
     leftTextRefs.current.forEach((el) => {
       gsap.fromTo(
         el,
-        { x: 0, opacity: 0 },
+        { x: isMobile ? 0 : 0, opacity: 0 }, // Set x to 0 for mobile and no movement
         {
-          x: "-85%",
+          x: isMobile ? 0 : "-85%", // For mobile, no horizontal movement
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -30,13 +33,13 @@ export default function CookiePolicy() {
         }
       );
     });
-
+  
     rightTextRefs.current.forEach((el) => {
       gsap.fromTo(
         el,
-        { x: 0, opacity: 0 },
+        { x: isMobile ? 0 : 0, opacity: 0 }, // Set x to 0 for mobile and no movement
         {
-          x: "95%",
+          x: isMobile ? 0 : "95%", // For mobile, no horizontal movement
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -52,9 +55,9 @@ export default function CookiePolicy() {
   }, []);
 
   return (
-    <div className="size-container-ideal">
+    <div className="size-container-ideal overflow-x-hidden">
       <Cursor />
-      <div className="uppercase font-mango-black flex justify-center text-11xl">
+      <div className="uppercase font-mango-black flex justify-center desktop:text-11xl tablet:text-11xl mobile:text-8xl desktop:mt-0 mobile:mt-10">
         <h1 ref={(el) => el && leftTextRefs.current.push(el)}>cookie</h1>
         <h1
           ref={(el) => el && rightTextRefs.current.push(el)}
@@ -63,7 +66,7 @@ export default function CookiePolicy() {
           policy
         </h1>
       </div>
-      <div className="w-3xl font-general-regular">
+      <div className="desktop:w-3xl font-general-regular">
       <p>
           This <span className="font-bold underline">Cookie Policy</span> explains what cookies are, how we use them, and
           your options regarding their usage. By using Meowseum, <span className="font-bold">you agree to

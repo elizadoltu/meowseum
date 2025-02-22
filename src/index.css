@@ -33,6 +33,9 @@
   --text-11xl: 18.5rem;
   --text-12xl: 14.5rem;
   --text-13xl: 38rem;
+  --breakpoint-mobile: 300px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1440px;
 }
 
 body {

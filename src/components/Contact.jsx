@@ -13,7 +13,7 @@ export default function Contact() {
   const textRefs = useRef([]);
   const parallaxConfig = {
     title: {
-      translateY: [70, -85], speed: 10, easing: "easeInOutQuad"
+      translateY: [70, -45], speed: 10, easing: "easeInOutQuad"
     }
   };
 
@@ -118,9 +118,9 @@ export default function Contact() {
           className="absolute left-3/7 -mt-28 ml-10"
         />
       </div>
-      <div className="leading-none" ref={title}>
+      <div className="leading-none">
         <div className="mt-96 flex flex-col justify-center">
-          <h1 className="font-dirtyline text-11xl" ref={mergeRefs(addToRefs)}>
+          <h1 className="font-dirtyline text-11xl" ref={mergeRefs(addToRefs, title)}>
             meowseum
           </h1>
           <img

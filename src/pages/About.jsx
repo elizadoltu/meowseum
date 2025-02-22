@@ -5,7 +5,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import Contact from "../components/Contact";
-import DynamicCursor from "../utils/DynamicCursor";
+import Profile from "../components/Profile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,9 +15,6 @@ export default function About() {
   const rightTextRefs = useRef([]);
   const elementsRef = useRef([]);
   const textRefCreator = useRef(null);
-  const refParagraphTarget = useRef(null);
-  const refTriggerElement = useRef(null);
-  const imageRef = useRef(null);
 
   useEffect(() => {
     if (!textRefAbout.current) return;
@@ -107,35 +104,7 @@ export default function About() {
     });
   }, []);
 
-  const handleMouseEnter = () => {
-    gsap.to(refParagraphTarget.current, {
-      opacity: 1,
-      duration: 0.5,
-      y: 0,
-      ease: "power2.out",
-    });
-
-    gsap.to(refTriggerElement.current, {
-      y: 0,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
-
-  const handleMouseLeave = () => {
-    gsap.to(refParagraphTarget.current, {
-      opacity: 0,
-      duration: 0.5,
-      y: 20,
-      ease: "power2.out",
-    });
-
-    gsap.to(refTriggerElement.current, {
-      y: 150,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
+  
 
   useEffect(() => {
     elementsRef.current.forEach((el) => {
@@ -179,25 +148,6 @@ export default function About() {
     );
   }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      imageRef.current,
-      {
-        clipPath: "inset(0 100% 0 0)",
-      },
-      {
-        clipPath: "inset(0 0 0 0)",
-        duration: 0.3,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 100%",
-          toggleActions: "play none none none",
-          once: true,
-        },
-      }
-    );
-  }, []);
 
   return (
     <div className="size-container-ideal about">
@@ -285,66 +235,19 @@ export default function About() {
             the <span className="font-mango-italic">creators</span>
           </h1>
         </div>
-        <div className="flex items-end leading-none">
-          <DynamicCursor />
-          <a
-            href="https://www.linkedin.com/in/eliza-teodora-doltu-56336b24a/"
-            target="_blank"
-            className="w-full"
-          >
-            <img
-              src="/eliza.png"
-              alt="one of the creators with a cat, eliza teodora doltu"
-              data-cursor="To my LinkedIn profile"
-              ref={imageRef}
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-                objectFit: "cover",
-                clipPath: "inset(0 100% 0 0)",
-                transition: "clip-path 0.3s ease-out",
-              }}
-            ></img>
-          </a>
-
-          <div
-            className="font-general-regular ml-5"
-            data-cursor="To my linkedin profile"
-          >
-            <h1
-              className="uppercase font-mango-black text-12xl translate-y-36 transition-all duration-200 ease-out"
-              ref={refTriggerElement}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              data-cursor="To my LinkedIn profile"
-            >
-              <a
-                href="https://www.linkedin.com/in/eliza-teodora-doltu-56336b24a/"
-                target="_blank"
-                className="w-full"
-              >
-                {" "}
-                eliza{" "}
-              </a>
-            </h1>
-            <div
-              className="opacity-0 grid grid-cols-2 gap-4 translate-y-5 transition-all duration-200 ease-out leading-6.5"
-              ref={refParagraphTarget}
-            >
-              <p>
-                Hello, my name is Eliza-Teodora Doltu, and I am one of the
-                creators of MEOWSEUM. Ever since I can remember, I’ve wanted to
-                express my creativity and bring something beautiful to life.
-              </p>
-              <p>
-                Just like websites tell a story through images, colors, and
-                fonts, MEOWSEUM tells a story through cats—their personalities,
-                their charm, and the joy they bring to us.
-              </p>
-            </div>
-          </div>
-        </div>
+        <Profile name={"eliza"} 
+        firstParagraph={"Hello, my name is Eliza-Teodora Doltu, and I am one of the creators of MEOWSEUM. Ever since I can remember, I’ve wanted to express my creativity and bring something beautiful to life."}
+        secondParagraph={"Just like websites tell a story through images, colors, and fonts, MEOWSEUM tells a story through cats—their personalities, their charm, and the joy they bring to us."}
+        image={"eliza"}
+        linkedinLink={"https://www.linkedin.com/in/eliza-teodora-doltu-56336b24a/"}
+        />
+        <Profile 
+          name={"raul"}
+          firstParagraph={"My name is Raul, a computer science student passionate about web development and software engineering. I love coding for its blend of logic and creativity,"}
+          secondParagraph={"building efficient applications while exploring new technologies. I'm always eager to learn, experiment, and stay updated with the latest advancements."}
+          image={"raul"}
+          linkedinLink={"https://www.linkedin.com/in/raul-cosmin-onceriu-3ba749259/"}
+        />
         <div className="main-content relative pt-[60vh] opacity-0 overflow-hidden">
           <Contact />
         </div>

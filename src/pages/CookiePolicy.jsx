@@ -57,7 +57,7 @@ export default function CookiePolicy() {
   return (
     <div className="size-container-ideal overflow-x-hidden">
       <Cursor />
-      <div className="uppercase font-mango-black flex justify-center desktop:text-11xl tablet:text-11xl mobile:text-8xl desktop:mt-0 mobile:mt-10">
+      <div className="uppercase font-mango-black flex justify-center desktop:text-11xl tablet:text-11xl mobile:text-8xl mobile:mt-10">
         <h1 ref={(el) => el && leftTextRefs.current.push(el)}>cookie</h1>
         <h1
           ref={(el) => el && rightTextRefs.current.push(el)}
@@ -66,7 +66,7 @@ export default function CookiePolicy() {
           policy
         </h1>
       </div>
-      <div className="desktop:w-3xl font-general-regular">
+      <div className="w-3xl font-general-regular">
       <p>
           This <span className="font-bold underline">Cookie Policy</span> explains what cookies are, how we use them, and
           your options regarding their usage. By using Meowseum, <span className="font-bold">you agree to

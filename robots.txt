@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: 
+Crawl-delay: 10
+Disallow: /cgi-bin/
+Disallow: /testing/
+Disallow: /admin/
+Sitemap: https://www.themeowseum.com

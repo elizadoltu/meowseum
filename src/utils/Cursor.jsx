@@ -4,8 +4,23 @@ import gsap from "gsap";
 const Cursor = () => {
   const cursorRef = useRef(null);
   const [isH2Animation, setIsH2Animation] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768 || navigator.maxTouchPoints > 0);
+    };
+
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile);
+
+    if (isMobile) {
+      if (cursorRef.current) {
+        cursorRef.current.style.display = "none";
+      }
+      return;
+    }
+
     const handleMouseMove = (e) => {
       gsap.to(cursorRef.current, {
         x: e.clientX - (isH2Animation ? 50 : 8),
@@ -70,29 +85,31 @@ const Cursor = () => {
     document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-        document.removeEventListener("mousemove", handleMouseMove);
-        defaultHoverTargets.forEach((target) => {
-          target.removeEventListener("mouseenter", handleMouseEnterDefault);
-          target.removeEventListener("mouseleave", handleMouseLeaveDefault);
-        });
-        h2AnimationTargets.forEach((target) => {
-          target.removeEventListener("mouseenter", handleMouseEnterH2Animation);
-          target.removeEventListener("mouseleave", handleMouseLeaveH2Animation);
-        });
-      };
-    }, [isH2Animation]);
-    
-    return (
-        <div
-          ref={cursorRef}
-          className={`fixed top-0 left-0 pointer-events-none z-50 mix-blend-difference ${
-            isH2Animation
-              ? "w-6 h-6 bg-green-500 flex justify-center items-center"
-              : "w-3 h-3 bg-primary-white rounded-full"
-          }`}
-        >
-        </div>
-      );
+      window.removeEventListener("resize", checkIfMobile);
+      document.removeEventListener("mousemove", handleMouseMove);
+      defaultHoverTargets.forEach((target) => {
+        target.removeEventListener("mouseenter", handleMouseEnterDefault);
+        target.removeEventListener("mouseleave", handleMouseLeaveDefault);
+      });
+      h2AnimationTargets.forEach((target) => {
+        target.removeEventListener("mouseenter", handleMouseEnterH2Animation);
+        target.removeEventListener("mouseleave", handleMouseLeaveH2Animation);
+      });
+    };
+  }, [isH2Animation, isMobile]);
+
+  if (isMobile) return null; 
+
+  return (
+    <div
+      ref={cursorRef}
+      className={`fixed top-0 left-0 pointer-events-none z-50 mix-blend-difference ${
+        isH2Animation
+          ? "w-6 h-6 bg-green-500 flex justify-center items-center"
+          : "w-3 h-3 bg-primary-white rounded-full"
+      }`}
+    ></div>
+  );
 };
 
 export default Cursor;

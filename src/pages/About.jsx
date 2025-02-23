@@ -54,7 +54,7 @@ export default function About() {
       ease: "power4.out",
     })
       .to(".headline", {
-        yPercent: isMobile ? -window.innerHeight : -270,
+        yPercent: isMobile ? -window.innerHeight * 1.5 : -270,
         duration: 1,
         ease: "power3.inOut",
       })
@@ -66,12 +66,14 @@ export default function About() {
   }, []);
 
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+
     leftTextRefs.current.forEach((el) => {
       gsap.fromTo(
         el,
         { x: 0, opacity: 0 },
         {
-          x: -260,
+          x: isMobile? 0 : -260,
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -90,7 +92,7 @@ export default function About() {
         el,
         { x: 0, opacity: 0 },
         {
-          x: 240,
+          x: isMobile? 0 : 240,
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -149,7 +151,7 @@ export default function About() {
 
 
   return (
-    <div className="size-container-ideal about">
+    <div className="size-container-ideal about overflow-x-hidden">
       <Cursor />
       <div className="headline w-full flex justify-center items-end absolute leading-none bottom-0 left-0">
         <h1 className="font-dirtyline tablet:text-12xl mobile:text-[2.5rem] headline-text uppercase">
@@ -167,7 +169,7 @@ export default function About() {
         </div>
         <div className="flex justify-center mt-[40vh]">
           <p
-            className="flex justify-center text-center w-5xl font-mango-regular text-8xl"
+            className="flex justify-center text-center w-5xl font-mango-regular tablet:text-8xl mobile:text-5xl"
             ref={textRefAbout}
           >
             MEOWSEUM is an app created by two people, just like you, who adore
@@ -177,13 +179,13 @@ export default function About() {
           </p>
         </div>
         <div className="mt-[40vh]">
-          <div className="uppercase font-mango-black flex justify-center text-11xl">
+          <div className="uppercase font-mango-black flex justify-center tablet:text-11xl mobile:text-6xl">
             <h1 ref={(el) => el && leftTextRefs.current.push(el)}>how</h1>
             <h1 ref={(el) => el && rightTextRefs.current.push(el)}>
               does it <span className="font-mango-italic">work</span>
             </h1>
           </div>
-          <div className="grid grid-cols-2 font-general-regular">
+          <div className="grid tablet:grid-cols-2 mobile:grid-cols-1 font-general-regular">
             <h1
               className="uppercase font-general-semibold"
               ref={(el) => el && elementsRef.current.push(el)}
@@ -192,7 +194,7 @@ export default function About() {
             </h1>
             <p
               ref={(el) => el && elementsRef.current.push(el)}
-              className="w-3xl text-lg"
+              className="tablet:w-3xl text-lg"
             >
               Upload your cat's photo by filling out a simple form. You’ll need:
               Your email address A photo of your cat Your Instagram/Twitter
@@ -201,14 +203,14 @@ export default function About() {
             </p>
 
             <h1
-              className="uppercase font-general-semibold mt-20"
+              className="uppercase font-general-semibold mt-20 "
               ref={(el) => el && elementsRef.current.push(el)}
             >
               Photo Review for Safety
             </h1>
             <p
               ref={(el) => el && elementsRef.current.push(el)}
-              className="w-3xl text-lg mt-20"
+              className="tablet:w-3xl text-lg tablet:mt-20"
             >
               Once submitted, we personally review each photo to ensure the
               gallery stays a safe and positive space.
@@ -222,18 +224,19 @@ export default function About() {
             </h1>
             <p
               ref={(el) => el && elementsRef.current.push(el)}
-              className="w-3xl mt-20 text-lg"
+              className="tablet:w-3xl tablet:mt-20 text-lg"
             >
               After approval, your cat’s photo will appear on the main page,
               along with your Instagram handle!
             </p>
           </div>
         </div>
-        <div className="flex justify-end uppercase text-10xl font-mango-black mt-[20vh] px-5">
+        <div className="flex justify-end uppercase tablet:text-10xl mobile:text-[5.5rem] font-mango-black mt-[20vh] px-5">
           <h1 ref={textRefCreator}>
             the <span className="font-mango-italic">creators</span>
           </h1>
         </div>
+
         <Profile name={"eliza"} 
         firstParagraph={"Hello, my name is Eliza-Teodora Doltu, and I am one of the creators of MEOWSEUM. Ever since I can remember, I’ve wanted to express my creativity and bring something beautiful to life."}
         secondParagraph={"Just like websites tell a story through images, colors, and fonts, MEOWSEUM tells a story through cats—their personalities, their charm, and the joy they bring to us."}

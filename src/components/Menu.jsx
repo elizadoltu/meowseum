@@ -7,7 +7,7 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="menu uppercase font-general-semibold text-lg fixed top-0 left-0 w-full z-50 mix-blend-difference">
+    <div className="menu uppercase font-general-semibold text-lg fixed top-0 left-0 w-full z-50 tablet:mix-blend-difference">
       <div className="fixed top-4 left-4 z-[60] tablet:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -38,7 +38,7 @@ export default function Menu() {
       </div>
 
       <div
-        className={`fixed inset-0 backdrop-blur-2xl bg-[#dbdbdb]/30 transition-all duration-500 ease-in-out transform ${
+        className={`fixed inset-0 backdrop-blur-2xl bg-[#dbdbdb]/20 transition-all duration-500 ease-in-out transform ${
           isOpen
             ? "opacity-100 visible translate-y-0"
             : "opacity-0 invisible -translate-y-full"

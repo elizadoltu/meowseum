@@ -154,7 +154,7 @@ const GridGallery = () => {
 
   const toggleLayout = (mode) => {
     setLayoutMode(mode);
-    setLayout(mode === "random" ? generateLayout() : "tablet:grid-cols-3 grid-rows-3 gap-1 mobile:grid-cols-1 gap-1");
+    setLayout(mode === "random" ? generateLayout() : "grid-cols-3 grid-rows-3 gap-1");
     setImageGroups([]);
     setPage(1);
   };
@@ -169,7 +169,7 @@ const GridGallery = () => {
 
   return (
     <div>
-      <div className="mb-4 z-50 flex justify-end right-0 font-general-semibold uppercase ">
+      <div className="mb-4 z-50 flex justify-end right-0 font-general-semibold uppercase mobile:opacity-0 tablet:opacity-100">
         <button onClick={() => toggleLayout("random")} className="mr-4 px-4 py-2 uppercase">
           <AnimatedButton text={"random"} />
         </button>
@@ -180,7 +180,8 @@ const GridGallery = () => {
       <div className="size-container-ideal flex flex-col items-center">
         {imageGroups.length > 0 &&
           imageGroups.map((group) => (
-            <div key={group.id} className={`grid ${group.layout} mt-10`}>
+            <div key={group.id} className={`grid ${layoutMode === "random" ? "tablet:grid-cols-3 grid-rows-3 gap-1 mobile:grid-cols-1" : "tablet:grid-cols-3 grid-rows-3 gap-1 mobile:grid-cols-1"} mt-10`}>
+
               {group.images.length > 0 ? (
                 group.images.map((img) => (
                   <div key={img.id} className={`p-1 ${getItemClass()}`}>

@@ -10,6 +10,7 @@ export default function Main() {
   ScrollToTop();
 
     useEffect(() => {
+      const isMobile = window.innerWidth <= 768;
         const tl = gsap.timeline();
 
         gsap.set(".main-content", { opacity: 0 });
@@ -21,7 +22,7 @@ export default function Main() {
           ease: "power4.out",
         })
         .to(".headline", {
-          yPercent: -190, 
+          yPercent: isMobile ? -window.innerHeight * 1.5 : -190, 
           duration: 1,
           ease: "power3.inOut"
         })
@@ -36,7 +37,7 @@ export default function Main() {
       <div className="size-container-ideal main overflow-hidden">
         <Cursor />
         <div className="headline w-full flex justify-center items-end absolute leading-none bottom-0 left-0">
-          <h1 className="font-dirtyline text-11xl headline-text uppercase">
+          <h1 className="font-dirtyline desktop:text-11xl tablet:text-14xl mobile:text-[3rem] headline-text uppercase">
             meowseum
           </h1>
         </div>
@@ -44,7 +45,7 @@ export default function Main() {
           <img
             src="/sticker-cat.png"
             alt="a sticker with a cute cat"
-            className="w-3xl flex left-1/2 translate-x-2/3"
+            className="w-3xl flex left-1/2 tablet:translate-x-2/3"
           />
           <GridGallery />
           <Contact />

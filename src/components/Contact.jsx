@@ -77,30 +77,30 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="uppercase contact">
+    <div className="uppercase contact leading-none">
       {showCursor && <CursorContact />}
       <div className="flex">
-        <h1 className="font-mango-black deskop:text-10xl tablet:text-10xl mobile:text-8xl mt-28" ref={addToRefs}>
+        <h1 className="font-mango-black deskop:text-10xl tablet:text-10xl mobile:text-7xl mt-28 tablet:leading-40 mobile:leading-10" ref={addToRefs}>
           the world's
         </h1>
         <img
           src="/cat-contact.png"
           alt="one cat"
-          className="absolute left-3/8 mt-20 mobile:w-40 desktop:w-auto tablet:auto"
+          className="absolute left-3/8 mt-20 mobile:w-40 desktop:w-auto tablet:w-auto"
         />
       </div>
-      <h1 className="font-mango-italic deskop:text-10xl tablet:text-10xl mobile:text-8xl desktop:leading-40 tablet:leading-40 mobile:leading-15" ref={addToRefs}>
+      <h1 className="font-mango-italic deskop:text-10xl tablet:text-10xl mobile:text-7xl " ref={addToRefs}>
         biggest
       </h1>
-      <h1 className="font-mango-black flex justify-end deskop:text-10xl tablet:text-10xl mobile:text-8xl desktop:leading-40 tablet:leading-40 mobile:leading-25" ref={addToRefs}>
+      <h1 className="font-mango-black flex justify-end deskop:text-10xl tablet:text-10xl mobile:text-7xl tablet:leading-40 mobile:leading-10" ref={addToRefs}>
         <span className="font-mango-iblack mr-10">cat</span> gallery
       </h1>
-      <h1 className="font-mango-black deskop:text-10xl tablet:text-10xl mobile:text-7xl desktop:leading-80 tablet:leading-80 mobile:leading-15" ref={addToRefs}>
-        a <span className="font-mango-italic mr-20">wonderland </span>for
+      <h1 className="font-mango-black deskop:text-10xl tablet:text-10xl mobile:text-7xl" ref={addToRefs}>
+        a <span className="font-mango-italic tablet:mr-20 mobile:mr-20">wonderland </span>for
       </h1>
       <div className="flex deskop:text-10xl tablet:text-10xl mobile:text-7xl">
         <div>
-          <h1 className="font-mango-black desktop:leading-40 tablet:leading-40 mobile:leading-15" ref={addToRefs}>
+          <h1 className="font-mango-black tablet:leading-40 mobile:leading-10" ref={addToRefs}>
             <span className="font-mango-iblack desktop:mr-20 tablet:mr-20 mobile:mr-10">cat </span>lovers
           </h1>
           <div className="flex desktop:flex-row tablet:flex-row mobile:flex-col justify-between font-general-semibold desktop:text-lg tablet:text-lg mobile:text-sm  z-50 relative">
@@ -120,13 +120,13 @@ export default function Contact() {
       </div>
       <div className="leading-none">
         <div className="desktop:mt-96 tablet:mt-50 mobile:mt-24 flex flex-col justify-center">
-          <h1 className="font-dirtyline desktop:text-11xl tablet:text-11xl mobile:text-[3.3rem]" ref={mergeRefs(addToRefs, title)}>
+          <h1 className="font-dirtyline desktop:text-11xl tablet:text-14xl mobile:text-[3rem]" ref={mergeRefs(addToRefs, title)}>
             meowseum
           </h1>
           <img
             src="/sticker-cat.png"
             alt="a sticker with a cute cat"
-            className="desktop:w-3xl tablet:w-3xl mobile:w-96 flex left-1/2 mobile:mt-10 desktop:mt-0 tablet:mt-0 desktop:translate-x-2/3 tablet:translate-x-2/3"
+            className="desktop:w-3xl tablet:w-3xl mobile:w-96 flex left-1/2 mobile:mt-10 desktop:mt-0 tablet:mt-0 desktop:translate-x-2/3 tablet:translate-x-2/5"
           />
         </div>
         <div className="flex text-sm justify-between font-general-semibold">

@@ -42,6 +42,7 @@ export default function About() {
   }, []);
 
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
     const tl = gsap.timeline();
 
     gsap.set(".main-content", { opacity: 0 });
@@ -53,7 +54,7 @@ export default function About() {
       ease: "power4.out",
     })
       .to(".headline", {
-        yPercent: -270,
+        yPercent: isMobile ? -window.innerHeight : -270,
         duration: 1,
         ease: "power3.inOut",
       })
@@ -151,7 +152,7 @@ export default function About() {
     <div className="size-container-ideal about">
       <Cursor />
       <div className="headline w-full flex justify-center items-end absolute leading-none bottom-0 left-0">
-        <h1 className="font-dirtyline text-12xl headline-text uppercase">
+        <h1 className="font-dirtyline tablet:text-12xl mobile:text-[2.5rem] headline-text uppercase">
           <span className="font-mango-black">about </span>meowseum
         </h1>
       </div>

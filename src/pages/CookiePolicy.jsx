@@ -12,14 +12,15 @@ export default function CookiePolicy() {
   const rightTextRefs = useRef([]);
 
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
 
+    const isMobile = window.innerWidth <= 768; 
+    
     leftTextRefs.current.forEach((el) => {
       gsap.fromTo(
         el,
-        { x: 0, opacity: 0 },
+        { x: 0, opacity: 0 }, 
         {
-          x: isMobile ? 0 : "-85%",
+          x: isMobile ? 0 : -window.innerWidth * 0.21, 
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -32,13 +33,13 @@ export default function CookiePolicy() {
         }
       );
     });
-
+  
     rightTextRefs.current.forEach((el) => {
       gsap.fromTo(
         el,
-        { x: 0, opacity: 0 },
+        { x: 0, opacity: 0 }, 
         {
-          x: isMobile ? 0 : "95%",
+          x: isMobile ? 0 : window.innerWidth * 0.19, 
           opacity: 1,
           duration: 1,
           ease: "power2.out",

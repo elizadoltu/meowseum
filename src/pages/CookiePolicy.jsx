@@ -4,10 +4,12 @@ import Contact from "../components/Contact";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Cursor from "../utils/Cursor";
+import ScrollToTop from "../hooks/ScrollToTop";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CookiePolicy() {
+  ScrollToTop();
   const leftTextRefs = useRef([]);
   const rightTextRefs = useRef([]);
 

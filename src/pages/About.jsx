@@ -6,10 +6,12 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import Contact from "../components/Contact";
 import Profile from "../components/Profile";
+import ScrollToTop from "../hooks/ScrollToTop";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  ScrollToTop();
   const textRefAbout = useRef(null);
   const leftTextRefs = useRef([]);
   const rightTextRefs = useRef([]);

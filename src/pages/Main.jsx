@@ -4,8 +4,10 @@ import Contact from "../components/Contact";
 import Cursor from "../utils/Cursor";
 import gsap from "gsap";
 import GridGallery from "../utils/GridTemplate";
+import ScrollToTop from "../hooks/ScrollToTop";
 
 export default function Main() {
+  ScrollToTop();
 
     useEffect(() => {
         const tl = gsap.timeline();

@@ -38,7 +38,7 @@ export default function Menu() {
       </div>
 
       <div
-        className={`fixed inset-0 backdrop-blur-xl bg-[#dbdbdb]/20 transition-all duration-500 ease-in-out transform ${
+        className={`fixed inset-0 backdrop-blur-2xl bg-[#dbdbdb]/30 transition-all duration-500 ease-in-out transform ${
           isOpen
             ? "opacity-100 visible translate-y-0"
             : "opacity-0 invisible -translate-y-full"

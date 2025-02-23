@@ -7,12 +7,11 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="menu uppercase font-general-semibold text-lg fixed top-0 left-0 w-full z-50 tablet:mix-blend-difference">
-      {/* Mobile Menu Button (Always Visible) */}
+    <div className="menu uppercase font-general-semibold text-lg fixed top-0 left-0 w-full z-50 mix-blend-difference">
       <div className="fixed top-4 left-4 z-[60] tablet:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2 uppercase backdrop-blur-md rounded-lg"
+          className="flex items-center gap-2 uppercase rounded-lg"
         >
           <span
             className={`transition-all duration-300 ease-in-out transform ${
@@ -38,9 +37,8 @@ export default function Menu() {
         </button>
       </div>
 
-      {/* Mobile Menu Panel with Blur Background */}
       <div
-        className={`fixed inset-0 backdrop-blur-lg bg-[#dbdbdb]/20 transition-all duration-500 ease-in-out transform ${
+        className={`fixed inset-0 backdrop-blur-xl bg-[#dbdbdb]/20 transition-all duration-500 ease-in-out transform ${
           isOpen
             ? "opacity-100 visible translate-y-0"
             : "opacity-0 invisible -translate-y-full"

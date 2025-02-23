@@ -80,6 +80,21 @@ const Profile = ({ name, firstParagraph, secondParagraph, image, linkedinLink })
         },
       }
     );
+    gsap.fromTo(
+      el,
+      { scale: 1.2 },
+      {
+        scale: 1.0,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 110%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+      }
+    );
     })
     
   }, []);
@@ -91,7 +106,7 @@ const Profile = ({ name, firstParagraph, secondParagraph, image, linkedinLink })
       <a
         href={ linkedinLink }
         target="_blank"
-        className="w-full"
+        className="w-full overflow-hidden"
       >
         <img
           src={`/profile/${image}.png`}

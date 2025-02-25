@@ -105,7 +105,7 @@ export default function CookiePolicy() {
             <span className="font-bold underline">
               Analyze site performance
             </span>{" "}
-            – We use Google Analytics to understand how visitors interact with
+            – We use Google analytics to understand how visitors interact with
             the website.
           </li>
         </ul>

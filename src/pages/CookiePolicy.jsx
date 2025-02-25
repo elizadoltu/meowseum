@@ -114,7 +114,7 @@ export default function CookiePolicy() {
           types of cookies that we use
         </h1>
         <h1 className="font-general-semibold text-2xl mt-8 uppercase">
-          essenstial cookies
+          essential cookies
         </h1>
         <p className="mt-4">
           These cookies are required for the site to function properly. They

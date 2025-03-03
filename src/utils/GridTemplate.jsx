@@ -33,7 +33,6 @@ const GridGallery = () => {
       });
     });
 
-    // Cleanup function
     return () => {
       imageGroups.forEach((group) => {
         group.images.forEach((img) => {
@@ -153,13 +152,12 @@ const GridGallery = () => {
             {group.images.map((img) => (
               <div key={img.id} className={`p-1 ${getItemClass()}`}>
                 <DynamicCursor />
-                <div className="overflow-hidden">
-                  {" "}
+                <div className="overflow-hidden aspect-square w-full">
                   <img
                     src={img.src}
                     ref={(el) => (img.imageRef = el)}
                     alt={img.name}
-                    className="w-3xl h-2xl object-cover transform origin-center transition-transform duration-300 ease-out"
+                    className="w-full h-full object-cover transform origin-center transition-transform duration-300 ease-out"
                   />
                 </div>
                 {img.socialHandle && img.socialHandle.handle ? (

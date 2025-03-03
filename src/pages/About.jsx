@@ -75,7 +75,7 @@ export default function About() {
         el,
         { x: 0, opacity: 0 },
         {
-          x: isMobile? 0 : -260,
+          x: isMobile? 0 : -window.innerWidth * 0.1,
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -94,7 +94,7 @@ export default function About() {
         el,
         { x: 0, opacity: 0 },
         {
-          x: isMobile? 0 : 240,
+          x: isMobile? 0 : window.innerWidth * 0.1,
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -156,7 +156,7 @@ export default function About() {
     <div className="size-container-ideal about overflow-x-hidden">
       <Cursor />
       <div className="headline w-full flex justify-center items-end absolute leading-none bottom-0 left-0">
-        <h1 className="font-dirtyline tablet:text-12xl mobile:text-[2.5rem] headline-text uppercase">
+        <h1 className="font-dirtyline tablet:text-[11rem] desktop:text-12xl mobile:text-[2.5rem] headline-text uppercase">
           <span className="font-mango-black">about </span>meowseum
         </h1>
       </div>
@@ -181,7 +181,7 @@ export default function About() {
           </p>
         </div>
         <div className="mt-[40vh]">
-          <div className="uppercase font-mango-black flex justify-center tablet:text-11xl mobile:text-6xl">
+          <div className="uppercase font-mango-black flex justify-center desktop:text-11xl tablet:text-12xl mobile:text-6xl">
             <h1 ref={(el) => el && leftTextRefs.current.push(el)}>how</h1>
             <h1 ref={(el) => el && rightTextRefs.current.push(el)}>
               does it <span className="font-mango-italic">work</span>

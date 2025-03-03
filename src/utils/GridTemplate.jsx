@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import AnimatedButton from "../animations/StaggerAnimation";
+import DynamicCursor from "./DynamicCursor";
 
 const GridGallery = () => {
   const [imageGroups, setImageGroups] = useState([]);
@@ -17,7 +18,10 @@ const GridGallery = () => {
   const fetchImages = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://meowseum-backend-production.up.railway.app/api/submissions');
+      const response = await fetch('https://meowseum-backend-production.up.railway.app/api/submissions', {
+        method: 'GET',
+        credentials: 'include'
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

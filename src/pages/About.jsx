@@ -199,7 +199,7 @@ export default function About() {
               className="tablet:w-3xl text-lg"
             >
               Upload your cat's photo by filling out a simple form. You’ll need:
-              Your email address A photo of your cat Your Instagram/Twitter
+              A photo of your cat; Your Instagram/Twitter
               account or just your name (so we can give you credit!) (Optional)
               A short message for us
             </p>

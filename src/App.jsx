@@ -9,6 +9,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Cursor from "./utils/Cursor";
 import { ParallaxProvider } from "react-scroll-parallax";
+import Form from "./utils/Form";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,6 +73,14 @@ export default function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <CookiePolicy />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/submit-photo"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Form />
               </Suspense>
             }
           />

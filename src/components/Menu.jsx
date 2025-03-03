@@ -70,7 +70,7 @@ export default function Menu() {
             <AnimatedButton text={"about"} href={"/about"} />
           </p>
           <p className="mobile:-mt-10 tablet:mt-0">
-            <AnimatedButton text={"submit photo"} />
+            <AnimatedButton text={"submit photo"} href={"/submit-photo"}/>
           </p>
         </div>
       </div>

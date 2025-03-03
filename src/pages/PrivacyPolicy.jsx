@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
         el,
         { x: 0, opacity: 0 }, 
         {
-          x: isMobile ? 0 : -window.innerWidth * 0.21, 
+          x: isMobile ? 0 : -window.innerWidth * 0.09, 
           opacity: 1,
           duration: 1,
           ease: "power2.out",
@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
         el,
         { x: 0, opacity: 0 }, 
         {
-          x: isMobile ? 0 : window.innerWidth * 0.19, 
+          x: isMobile ? 0 : window.innerWidth * 0.09, 
           opacity: 1,
           duration: 1,
           ease: "power2.out",

@@ -105,7 +105,7 @@ export default function Contact() {
           </h1>
           <div className="flex desktop:flex-row tablet:flex-row mobile:flex-col justify-between font-general-semibold desktop:text-lg tablet:text-lg mobile:text-sm  z-50 relative">
             <p>
-              <AnimatedButton text={"submit photo"} />
+              <AnimatedButton text={"submit photo"} href={"/submit-photo"}/>
             </p>
             <p>
               <AnimatedButton text={"meowseumofficial@gmail.com"} href={"mailto:meowseumofficial@gmail.com"}/>

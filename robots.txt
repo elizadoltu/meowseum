@@ -4,4 +4,4 @@ Crawl-delay: 10
 Disallow: /cgi-bin/
 Disallow: /testing/
 Disallow: /admin/
-Sitemap: https://www.themeowseum.com
+Sitemap: https://www.themeowseum.com/sitemap.xml

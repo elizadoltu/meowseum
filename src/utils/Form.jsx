@@ -86,7 +86,7 @@ const Form = () => {
   return (
     <div className='overflow-hidden size-container-ideal'>
       <Menu />
-      <div className="p-4 min-h-screen flex flex-col justify-center tablet:w-3xl mobile:w-68 overflow-hidden">
+      <div className="p-4 min-h-screen flex flex-col justify-center tablet:w-3xl mobile:w-80 overflow-hidden">
         <h2 className="mb-4 uppercase font-general-semibold tablet:text-2xl">
             Complete the form
           </h2>
@@ -195,7 +195,6 @@ const Form = () => {
                     type="button"
                     onClick={triggerFileInput}
                     className="w-full py-2 border-b flex items-center justify-between cursor-pointer"
-                    role="button"
                     tabIndex="0"
                     onKeyPress={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {

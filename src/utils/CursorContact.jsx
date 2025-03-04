@@ -167,7 +167,7 @@ const CursorContact = () => {
       <div className="trail-wrap">
         <div className="trail-list">
           {Array.from({ length: 10 }).map((_, index) => (
-            <div key={`trail-item-${index}`} data-trail="item" className="trail-item">
+            <div key={`trail-item-${index}-${Math.random()}`} data-trail="item" className="trail-item">
               <img
                 src={`/cat-trail-${index + 1}.png`}
                 alt=""

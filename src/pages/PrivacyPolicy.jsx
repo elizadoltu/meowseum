@@ -170,8 +170,7 @@ export default function PrivacyPolicy() {
           contact us
         </h1>
         <p className="mt-4">
-          Got questions? Need your data removed? Just want to say hi?
-          <a
+          Got questions? Need your data removed? Just want to say hi?<a
             href="mailto:meowseumofficial@gmail.com"
             className="font-bold uppercase underline"
           >

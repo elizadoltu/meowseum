@@ -51,13 +51,13 @@ export default function Menu() {
               href="mailto:meowseumofficial@gmail.com"
             />
           </p>
-          <button onClick={changeTheme} className="uppercase tablet:ml-10 mobile:-mt-10 tablet:mt-0">
+          <button onClick={changeTheme} className="uppercase tablet:ml-10 mobile:-mt-8 tablet:mt-0">
             <AnimatedButton text={"change colors"} />
           </button>
-          <p className="tablet:ml-10 mobile:-mt-10 tablet:mt-0">
+          <p className="tablet:ml-10 mobile:-mt-8 tablet:mt-0">
             <AnimatedButton text={"privacy"} href="/privacy-policy" />
           </p>
-          <p className="tablet:ml-10 mobile:-mt-10 tablet:mt-0">
+          <p className="tablet:ml-10 mobile:-mt-8 tablet:mt-0">
             <AnimatedButton text={"cookie"} href="/cookie-policy" />
           </p>
         </div>
@@ -66,10 +66,10 @@ export default function Menu() {
           <p className="tablet:mr-10">
             <AnimatedButton text={"meowseum"} href={"/"} />
           </p>
-          <p className="tablet:mr-10 mobile:-mt-10 tablet:mt-0">
+          <p className="tablet:mr-10 mobile:-mt-8 tablet:mt-0">
             <AnimatedButton text={"about"} href={"/about"} />
           </p>
-          <p className="mobile:-mt-10 tablet:mt-0">
+          <p className="mobile:-mt-8 tablet:mt-0">
             <AnimatedButton text={"submit photo"} href={"/submit-photo"}/>
           </p>
         </div>

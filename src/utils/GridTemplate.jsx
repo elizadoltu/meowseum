@@ -3,7 +3,6 @@ import AnimatedButton from "../animations/StaggerAnimation";
 import DynamicCursor from "./DynamicCursor";
 import gsap from "gsap";
 import supportWebp from "./supportWebp";
-import axios from "axios";
 
 const GridGallery = () => {
   const [images, setImages] = useState([]);
@@ -133,9 +132,9 @@ const GridGallery = () => {
   };
 
   const getSocialHandle = (submission) => {
-    if (submission.insta && submission.insta.trim()) {
+    if (submission.insta?.trim()) {
       return { platform: "Instagram", handle: submission.insta };
-    } else if (submission.xhandle && submission.xhandle.trim()) {
+    } else if (submission.xhandle?.trim()) {
       return { platform: "X", handle: submission.xhandle };
     }
     return null; 
@@ -192,9 +191,7 @@ const GridGallery = () => {
       <div className="size-container-ideal flex flex-col items-center">
         <div
           className={`grid ${
-            layoutMode === "random"
-              ? "tablet:grid-cols-3 grid-rows-3 gap-1 mobile:grid-cols-1"
-              : "tablet:grid-cols-3 grid-rows-3 gap-1 mobile:grid-cols-1"
+            "tablet:grid-cols-3 grid-rows-3 gap-1 mobile:grid-cols-1"
           } mt-10`}
         >
           {images.map((img, index) => (
@@ -205,7 +202,7 @@ const GridGallery = () => {
             >
               <DynamicCursor />
               <div className="overflow-hidden aspect-square w-full">
-                {img.socialHandle && img.socialHandle.handle ? (
+                {img.socialHandle?.handle ? (
                   <a
                     href={
                       img.socialHandle.platform === "Instagram"
@@ -238,7 +235,7 @@ const GridGallery = () => {
                   </div>
                 )}
               </div>
-              {img.socialHandle && img.socialHandle.handle ? (
+              {img.socialHandle?.handle ? (
                 <a
                   href={
                     img.socialHandle.platform === "Instagram"

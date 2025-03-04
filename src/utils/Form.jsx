@@ -49,32 +49,39 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({ submitting: true, success: false, error: null });
-    
+  
     const data = new FormData();
-    for (const key in formData) {
-      data.append(key, formData[key]);
+    data.append('name', formData.name.trim());
+    data.append('insta', formData.insta.trim());
+    data.append('xhandle', formData.xhandle.trim());
+    data.append('message', formData.message.trim());
+    if (formData.photo) {
+      data.append('photo', formData.photo);
     }
-
+  
     try {
-      const response = await axios.post('https://meowseum-backend-production.up.railway.app/api/submit-form', data, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
+      const response = await axios.post(
+        'https://meowseum-backend-production.up.railway.app/api/submit-form',
+        data,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      );
       console.log('Submission successful:', response.data);
       setStatus({ submitting: false, success: true, error: null });
-      
       setTimeout(() => {
         window.location.href = '/';
       }, 2000);
-      
     } catch (error) {
       console.error('Submission failed:', error);
-      setStatus({ 
-        submitting: false, 
-        success: false, 
-        error: error.response?.data?.message || 'Something went wrong. Please try again.' 
+      setStatus({
+        submitting: false,
+        success: false,
+        error:
+          error.response?.data?.error || 'Something went wrong. Please try again.',
       });
     }
   };
+  
+  
 
   return (
     <div className='overflow-hidden size-container-ideal'>

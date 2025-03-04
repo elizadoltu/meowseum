@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import AnimatedButton from "../animations/StaggerAnimation";
 import DynamicCursor from "./DynamicCursor";
 import gsap from "gsap";
+import supportWebp from "./supportWebp";
+import axios from "axios";
 
 const GridGallery = () => {
   const [images, setImages] = useState([]);
@@ -16,6 +18,7 @@ const GridGallery = () => {
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef();
   const loadingRef = useRef(null);
+  const [supportsWebp, setSupportsWebp] = useState(false);
 
   const lastImageElementRef = useCallback(
     (node) => {
@@ -37,6 +40,11 @@ const GridGallery = () => {
     if (window.innerWidth < 640) {
       setLayoutMode("grid");
     }
+    (async () => {
+      const isWebpSupported = await supportWebp();
+      setSupportsWebp(isWebpSupported);
+    })();
+
     fetchImages(1, true);
   }, []);
 
@@ -91,7 +99,9 @@ const GridGallery = () => {
       const data = await response.json();
       const processedImages = data.submissions.map((submission, index) => ({
         id: `${index}-${Date.now()}`,
-        src: `data:image/jpeg;base64,${submission.image}`,
+        src: supportsWebp 
+          ? `data:image/webp;base64,${submission.image}` 
+          : `data:image/jpeg;base64,${submission.image}`,
         name: submission.name,
         socialHandle: getSocialHandle(submission),
       }));
@@ -123,13 +133,14 @@ const GridGallery = () => {
   };
 
   const getSocialHandle = (submission) => {
-    if (submission.insta) {
+    if (submission.insta && submission.insta.trim()) {
       return { platform: "Instagram", handle: submission.insta };
-    } else if (submission.xhandle) {
+    } else if (submission.xhandle && submission.xhandle.trim()) {
       return { platform: "X", handle: submission.xhandle };
     }
-    return null;
+    return null; 
   };
+  
 
   const generateLayout = () => {
     const layouts = [

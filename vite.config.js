@@ -10,8 +10,16 @@ export default defineConfig({
       '/api': {
         target: 'https://meowseum-backend-production.up.railway.app',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        configure: (proxy) => {
+          proxy.on('proxyRes', (proxyRes) => {
+            proxyRes.headers['cache-control'] = 'public, max-age=3600'
+          })
+        }
       }
     }
+  },
+  build: {
+    minify: 'esbuild'
   }
 })

@@ -1,35 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <link rel="preload" href="/src/fonts/DirtyLine/Dirtyline 36daysoftype 2022.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="canonical" href="https://www.themeowseum.com/" />
+    <link
+      rel="preload"
+      href="/src/fonts/DirtyLine/Dirtyline 36daysoftype 2022.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="preload" href="/sticker-cat.png" as="image" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meowseum | World's Biggest Online Cat Gallery</title>
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="Join Meowseum – the ultimate online cat gallery! Upload, share, and discover the cutest feline photos. Be part of the world's largest cat-loving community!">
-    <meta name="keywords" content="cat, cat lovers, gallery, community, cat photos, biggest gallery, feline, spotlight, beautiful, funny, cute">
-    <meta name="author" content="Eliza - Teodora Doltu & Raul - Cosmin Onceriu" />
-    <meta property="og:description" content="CatGallery is the ultimate online platform for cat lovers! It’s a community-driven space where users can share and discover adorable cat photos. The app's mission is to build the world's biggest cat gallery, where every feline has its moment in the spotlight.">
-    <meta property="og:image" content="https://www.themeowseum.com/sticker-cat.png">
+    <meta
+      name="description"
+      content="Join Meowseum – the ultimate online cat gallery! Upload, share, and discover the cutest feline photos. Be part of the world's largest cat-loving community!"
+    />
+    <meta
+      name="keywords"
+      content="cat, cat lovers, gallery, community, cat photos, biggest gallery, feline, spotlight, beautiful, funny, cute"
+    />
+    <meta
+      name="author"
+      content="Eliza - Teodora Doltu & Raul - Cosmin Onceriu"
+    />
+    <meta
+      property="og:description"
+      content="CatGallery is the ultimate online platform for cat lovers! It’s a community-driven space where users can share and discover adorable cat photos. The app's mission is to build the world's biggest cat gallery, where every feline has its moment in the spotlight."
+    />
+    <meta
+      property="og:image"
+      content="https://www.themeowseum.com/sticker-cat.png"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.themeowseum.com/" />
-    <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Meowseum | Biggest Cat Gallery">
-<meta name="twitter:description" content="Join the ultimate online cat gallery! Upload, share, and explore adorable feline photos.">
-<meta name="twitter:image" content="https://www.themeowseum.com/sticker-cat.png">
-<meta name="google-site-verification" content="lJ4ucnHwobZz3Kgn3GOVOjCH1wcLyoUQd8spjhc35BQ" />
+    <meta property="og:url" content="https://www.themeowseum.com/about" />
+    <meta property="og:site_name" content="Meowseum" />
+    <meta
+      property="og:url"
+      content="https://www.themeowseum.com/submit-photo"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Meowseum | Biggest Cat Gallery" />
+    <meta
+      name="twitter:description"
+      content="Join the ultimate online cat gallery! Upload, share, and explore adorable feline photos."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.themeowseum.com/sticker-cat.png"
+    />
+    <meta
+      name="google-site-verification"
+      content="lJ4ucnHwobZz3Kgn3GOVOjCH1wcLyoUQd8spjhc35BQ"
+    />
   </head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CSMXDQF1XM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-CSMXDQF1XM"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  gtag('config', 'G-CSMXDQF1XM');
-</script>
-  
+    gtag("config", "G-CSMXDQF1XM");
+  </script>
+  <script>
+    function addSchemaForPage() {
+      const pageSchemas = {
+        '/': {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Meowseum",
+          "url": "https://www.themeowseum.com/",
+          "description": "Join Meowseum – the ultimate online cat gallery! Upload, share, and discover the cutest feline photos.",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.themeowseum.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        '/about': {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About Meowseum",
+          "url": "https://www.themeowseum.com/about",
+          "description": "Discover the story behind Meowseum – the world's biggest online cat gallery!"
+        },
+        '/submit-photo': {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Submit Your Cat Photo | Meowseum",
+          "url": "https://www.themeowseum.com/submit-photo",
+          "description": "Share your cat's best moments with Meowseum and join our global gallery! Upload your photo today."
+        },
+        '/privacy-policy': {
+          "@context": "https://schema.org",
+          "@type": "PrivacyPolicy",
+          "name": "Privacy Policy | Meowseum",
+          "url": "https://www.themeowseum.com/privacy-policy",
+          "description": "Learn about how Meowseum collects, uses, and protects your personal information."
+        },
+        '/cookie-policy': {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Cookie Policy | Meowseum",
+          "url": "https://www.themeowseum.com/cookie-policy",
+          "description": "Understand how Meowseum uses cookies and similar technologies to enhance your browsing experience."
+        }
+      };
+
+      // Get current path
+      const path = window.location.pathname;
+
+      const schema = pageSchemas[path] || pageSchemas['/'];
+
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(schema);
+
+      document.head.appendChild(script);
+    }
+
+    window.onload = addSchemaForPage;
+  </script>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

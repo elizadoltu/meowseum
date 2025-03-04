@@ -96,14 +96,13 @@ const GridGallery = () => {
       }
 
       const data = await response.json();
-      const processedImages = data.submissions.map((submission, index) => ({
-        id: `${index}-${Date.now()}`,
-        src: supportsWebp 
-          ? `data:image/webp;base64,${submission.image}` 
-          : `data:image/jpeg;base64,${submission.image}`,
+      const processedImages = data.submissions.map((submission) => ({
+        id: submission._id, 
+        src: supportsWebp ? `data:image/webp;base64,${submission.image}` : `data:image/jpeg;base64,${submission.image}`,
         name: submission.name,
         socialHandle: getSocialHandle(submission),
       }));
+      
 
       setPagination({
         currentPage: data.pagination.currentPage,

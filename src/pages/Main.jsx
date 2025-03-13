@@ -42,10 +42,10 @@ export default function Main() {
           </h1>
         </div>
         <div className="main-content main relative pt-[40vh] opacity-0">
-          <img
+        <img
             src="/sticker-cat.png"
             alt="a sticker with a cute cat"
-            className="w-3xl flex left-1/2 tablet:translate-x-2/3"
+            className="desktop:w-3xl tablet:w-3xl mobile:w-96 flex left-1/2 mobile:mt-10 desktop:mt-0 tablet:mt-0 desktop:translate-x-2/3 tablet:translate-x-2/5"
           />
           <GridGallery />
           <Contact />

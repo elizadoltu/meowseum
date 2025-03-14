@@ -88,12 +88,8 @@ export default function PrivacyPolicy() {
           information we collect
         </h1>
         <p className="mt-4">When you interact with Meowseum, we may collect:</p>
-        <p className="mt-2">
-          <span className="font-bold underline">Your email address</span> – for
-          communication purposes.
-        </p>
         <p>
-          <span className="font-bold underline">
+          <span className="font-bold underline mt-2">
             Your Twitter or Instagram handle or name
           </span>{" "}
           – if you choose to share it, we display it alongside your photo.
